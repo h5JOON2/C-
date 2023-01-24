@@ -1,0 +1,32 @@
+
+using System;
+
+
+public interface HASUIN{
+	 string stat();
+}	
+public class main {
+	
+	public static void Main() {
+		Penguin A = new Penguin();
+		
+		Console.WriteLine(A.stat());
+	}
+	
+}
+public class Penguin : HASUIN{
+	public int x,y;
+	public int cost;
+	public Penguin(){
+		this.x=1;
+		this.y=1;
+		this.cost=0;
+	}
+	public string stat(){
+		return string.Format("<{0},{1},{2}>",this.x,this.y,this.cost);
+	}
+	
+}
+
+
+
