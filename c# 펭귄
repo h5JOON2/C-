@@ -1,4 +1,4 @@
-
+// 인터페이스 이용한 펭귄 구현(하수인-펭귄 관계)
 using System;
 
 
@@ -28,5 +28,42 @@ public class Penguin : HASUIN{
 	
 }
 
+// 하수인을 일반 클래스로 하여 상속받은 일반클래스 펭귄
+
+
+using System;
+
+
+
+public class main {
+	
+	public static void Main() {
+		Penguin A = new Penguin();
+		
+		Console.WriteLine(A.Stat.x);
+	}
+	
+}
+public class HASUIN{
+	public struct stat{
+		public int x;
+		public int y;
+		public stat(int X, int Y){
+			x=X;
+			y=Y;
+	
+		}
+	}
+	public int cost;
+	public stat Stat;
+}
+public class Penguin : HASUIN {
+	public Penguin(){
+		Stat = new stat(1,1);
+		this.cost=0;
+	}
+	
+}
+	
 
 
