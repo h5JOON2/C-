@@ -51,3 +51,67 @@ public class main {
   ///// 입력된 정수의 정렬된 배열에서의 위치 출력함수
 ///// 위치에 자리비우기 함수
   
+  using System;
+
+public class main {
+	public static void Main() {
+		int input = int.Parse(Console.ReadLine());
+		int[] NumberList= new int[input];
+		int NewInt;
+		int NewIntPos;
+		
+		for (int i=0;i<input;i++){
+			
+			
+			NewInt =int.Parse(Console.ReadLine());
+			NewIntPos=FindPos(NumberList, NewInt, 0, i);
+			//자리비우기함수
+			GenerativePos(NumberList,NewIntPos,0,i);
+			NumberList[NewIntPos]=NewInt;
+			
+			
+			
+		}
+		for (int i=0;i<NumberList.Length;i++){
+			
+			
+			Console.WriteLine(NumberList[i]);			
+			
+			
+		}
+		
+		
+	}
+	public static int FindPos(int[] x, int y, int min, int max){
+		int middle= (max-min)/2 + min;
+		
+		if (max <= min){
+			return middle;
+		}
+		else{
+			if (x[middle]<y){
+			min=middle+1;
+			return FindPos(x,y,min,max);
+		}
+		else if (x[middle]>y){
+			max=middle-1;
+			return FindPos(x,y,min,max);
+		}
+		else{
+			return middle;
+		}
+			
+		}
+	}
+	public static int[] GenerativePos(int[] x, int pos, int min, int max){
+		while(max>pos){
+			x[max--]=x[max];
+		}
+		return x;
+		
+	}
+}
+/////배열 입력 시 배열 정렬 자동화 알고리즘
+///// 입력한 정수값의 배열에서의 위치출력 함수
+/////입력한 위치를 정렬된 배열에서 비운 후 [(0)으로 초기화, 나머지 값들을 뒤로 한칸씩 미룸]그 배열을 다시 출력해주는 함수
+
