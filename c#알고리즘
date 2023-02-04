@@ -1,0 +1,53 @@
+using System;
+
+public class main {
+	public static void Main() {
+		int input = int.Parse(Console.ReadLine());
+		int[] NumberList= new int[input];
+		int NewInt;
+		int NewIntPos;
+		
+		for (int i=0;i<input;i++){
+			
+			
+			NewInt =int.Parse(Console.ReadLine());
+			NewIntPos=FindPos(NumberList, NewInt, 0, i);
+			//자리비우기함수
+			
+			NumberList(NewIntPos)=NewInt;
+			
+			
+			
+		}
+		Console.WriteLine(NumberList.Length);
+		
+		
+	}
+	public static int FindPos(int[] x, int y, int min, int max){
+		int middle= (max-min)/2 + min;
+		
+		if (max <= min){
+			return middle;
+		}
+		else{
+			if (x[middle]<y){
+			min=middle+1;
+			return FindPos(x,y,min,max);
+		}
+		else if (x[middle]>y){
+			max=middle-1;
+			return FindPos(x,y,min,max);
+		}
+		else{
+			return middle;
+		}
+			
+		}
+	}
+	public static  FindPos
+}
+
+  
+  ///// 입력된 정수의 정렬된 배열에서의 위치 출력함수
+///// 위치에 자리비우기 함수
+  
